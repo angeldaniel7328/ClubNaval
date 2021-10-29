@@ -8,7 +8,7 @@ namespace DataAccess
 {
     public class DALBarco
     {
-        public static bool Insertar(VOBarco barco)
+        public static bool InsertarBarco(VOBarco barco)
         {
             try {
                 List<Parametro> parametros = new List<Parametro>();
@@ -27,27 +27,68 @@ namespace DataAccess
             }
         }
 
-        public static VOBarco ConsultarBarco(int idBarco)
+        public static VOBarco ConsultarBarcoPorId(int idBarco)
         {
             VOBarco barco;
             try
             {
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@IdBarco", SqlDbType.Int, idBarco));
-                List<object> datos = Consulta.EjecutarLectura("SP_EjecutarBarcoPorId", parametros);
-                string matricula = (string)datos[1];
-                string noAmarre = (string)datos[2];
-                string nombre = (string)datos[3];
-                double cuota = (double)datos[4];
-                int idOwner = (int)datos[5];
-                bool disponibilidad = (bool)datos[6];
-                string urlFoto = (string)datos[7];
+                Dictionary<string, object> datos = Consulta.EjecutarLectura("SP_ConsultarBarcoPorId", parametros);
+                string matricula = (string)datos["Matricula"];
+                string noAmarre = (string)datos["NoAmarre"];
+                string nombre = (string)datos["Nombre"];
+                double cuota = (double)datos["Cuota"];
+                int idOwner = (int)datos["IdOwner"];
+                bool disponibilidad = (bool)datos["Disponibilidad"];
+                string urlFoto = (string)datos["UrlFoto"];
                 barco = new VOBarco(idBarco, matricula, noAmarre, nombre, cuota, idOwner, disponibilidad, urlFoto);
             }
             catch(Exception){
                 throw new ArgumentException("No se pudo consultar en la base de datos");
             }
             return barco;
+        }
+
+        public static List<VOBarco> ConsultarBarcos(bool? disponibilidad)
+        {
+            List<VOBarco> barcos = new List<VOBarco>();
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
+                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarBarcos", parametros);
+                foreach (DataRow registro in datosBarcos.Rows)
+                {
+                    barcos.Add(new VOBarco(registro));
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo consultar en la base de datos");
+            }
+            return barcos;
+        }
+
+        public static List<VOBarco> ConsultarBarcosPorDueño(int idOwner, bool? disponibilidad)
+        {
+            List<VOBarco> barcos = new List<VOBarco>();
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
+                parametros.Add(new Parametro("@IdOwner", SqlDbType.Int, idOwner));
+                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarBarcosPorOwner", parametros);
+                foreach (DataRow registro in datosBarcos.Rows)
+                {
+                    barcos.Add(new VOBarco(registro));
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo consultar en la base de datos");
+            }
+            return barcos;
         }
     }
 }
