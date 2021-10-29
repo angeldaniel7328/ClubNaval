@@ -16,18 +16,16 @@ namespace DataAccess
             this.Nombre = nombre;
             this.Tipo = tipo;
             this.Valor = valor;
-        }
-        
+        }      
     }
 
     public static class Consulta
     {
-        public static int EjecucionSinConsulta(string procedimiento, List<Parametro> parametros)
+        public static int EjecutarSinConsulta(string procedimiento, List<Parametro> parametros)
         {
             Conexion conexion = new Conexion();
             SqlConnection sqlConnection = new SqlConnection(conexion.CadenaConexion);
             int rows;
-
             try
             {
                 sqlConnection.Open();
@@ -47,20 +45,26 @@ namespace DataAccess
             return rows;
         }
 
-        public static int EjecucionConConsulta(string procedimiento, List<Parametro> parametros)
+        public static List<object> EjecutarLectura(string procedimiento, List<Parametro> parametros)
         {
             Conexion conexion = new Conexion();
             SqlConnection sqlConnection = new SqlConnection(conexion.CadenaConexion);
-            int rows;
+            SqlDataReader datos;
+            List<object> registro = new List<object>();
             try
             {
-
                 sqlConnection.Open();
                 SqlCommand cmd = new SqlCommand(procedimiento, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 parametros.ForEach((parametro) => cmd.Parameters.Add(parametro.Nombre, parametro.Tipo).Value = parametro.Valor);
-                rows = cmd.ExecuteNonQuery();
-
+                datos = cmd.ExecuteReader();
+                while (datos.Read())
+                {
+                    foreach (var valor in datos)
+                    {
+                        registro.Add(valor);
+                    }
+                }
             }
             catch (Exception)
             {
@@ -70,7 +74,7 @@ namespace DataAccess
             {
                 sqlConnection.Close();
             }
-            return rows;
+            return registro;
         }
     }
 }

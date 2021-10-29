@@ -28,7 +28,7 @@ namespace Entities
             Cuota = cuota;
             IdOwner = idOwner;
             Disponibilidad = disponibilidad;
-            urlFoto = UrlFoto;
+            UrlFoto = urlFoto;
         }
 
         public VOBarco(string matricula, string noAmarre, string nombre,
@@ -54,5 +54,7 @@ namespace Entities
             Disponibilidad = (bool?)fila["Disponibilidad"];
             UrlFoto = (string)fila["UrlFoto"];
         }
+
+        public VOBarco() { }
     }
 }
