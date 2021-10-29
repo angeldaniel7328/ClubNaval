@@ -17,7 +17,7 @@ namespace DataAccess
             try
             {
                 CadenaConexion = ConfigurationManager.AppSettings.Get("CADENA_CONEXION");
-                //DbProviderFactories.ge
+                //DbProviderFactory factory = DbProviderFactories.GetFactory();
             }
             catch (Exception)
             {

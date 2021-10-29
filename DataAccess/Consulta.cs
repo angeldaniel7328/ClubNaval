@@ -76,5 +76,30 @@ namespace DataAccess
             }
             return registro;
         }
+
+        public static DataTable EjecutarConLlenado(string procedimiento, List<Parametro> parametros)
+        {
+            Conexion conexion = new Conexion();
+            SqlConnection sqlConnection = new SqlConnection(conexion.CadenaConexion);
+            DataSet set = new DataSet();
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand cmd = new SqlCommand(procedimiento, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                parametros.ForEach((parametro)=> cmd.Parameters.Add(parametro.Nombre, parametro.Tipo).Value = parametro.Valor);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(set, "Resultados");
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo insertar en la base de datos");
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return set.Tables["Resultados"];
+        }
     }
 }

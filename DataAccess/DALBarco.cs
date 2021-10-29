@@ -49,5 +49,46 @@ namespace DataAccess
             }
             return barco;
         }
+
+        public static List<VOBarco> ConsultarBarcos(bool? disponibilidad)
+        {
+            List<VOBarco> barcos = new List<VOBarco>();
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
+                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsularBarcos", parametros);
+                foreach (DataRow registro in datosBarcos.Rows)
+                {
+                    barcos.Add(new VOBarco(registro));
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo consultar en la base de datos");
+            }
+            return barcos;
+        }
+
+        public static List<VOBarco> ConsultarBarcosPorDueño(int idOwner, bool? disponibilidad)
+        {
+            List<VOBarco> barcos = new List<VOBarco>();
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
+                parametros.Add(new Parametro("@IdOwner", SqlDbType.Int, idOwner));
+                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsularBarcosPorOwner", parametros);
+                foreach (DataRow registro in datosBarcos.Rows)
+                {
+                    barcos.Add(new VOBarco(registro));
+                }
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo consultar en la base de datos");
+            }
+            return barcos;
+        }
     }
 }
