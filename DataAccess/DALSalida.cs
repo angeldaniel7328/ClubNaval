@@ -15,6 +15,7 @@ namespace DataAccess
             try
             {
                 List<Parametro> parametros = new List<Parametro>();
+
                 parametros.Add(new Parametro("@FechaHoraSalida", SqlDbType.DateTime, salida.FechaHoraSalida));
                 parametros.Add(new Parametro("@Destino", SqlDbType.VarChar, salida.Destino));
                 parametros.Add(new Parametro("@Estado", SqlDbType.VarChar, salida.Estado));

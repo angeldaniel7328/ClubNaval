@@ -12,6 +12,7 @@ namespace DataAccess
             try
             {
                 List<Parametro> parametros = new List<Parametro>();
+
                 //parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, persona.IdPersona));
                 parametros.Add(new Parametro("@Nombre", SqlDbType.VarChar, persona.Nombre));
                 parametros.Add(new Parametro("@Direccion", SqlDbType.VarChar, persona.Direccion));
