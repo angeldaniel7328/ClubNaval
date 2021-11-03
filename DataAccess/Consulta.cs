@@ -87,6 +87,7 @@ namespace DataAccess
                 sqlConnection.Open();
                 SqlCommand cmd = new SqlCommand(procedimiento, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 parametros.ForEach((parametro)=> cmd.Parameters.Add(parametro.Nombre, parametro.Tipo).Value = parametro.Valor);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(set, "Resultados");
