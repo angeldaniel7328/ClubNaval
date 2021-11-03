@@ -60,6 +60,8 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="DALBarco.cs" />
+    <Compile Include="DALPersona.cs" />
+    <Compile Include="DALSalida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
