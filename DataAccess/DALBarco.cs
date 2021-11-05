@@ -125,7 +125,7 @@ namespace DataAccess
             }
             catch (Exception)
             {
-                throw new ArgumentException("No se pudo actualizar en la base de datos");
+                throw new ArgumentException("No se pudo eliminar en la base de datos");
             }
         }
     }
