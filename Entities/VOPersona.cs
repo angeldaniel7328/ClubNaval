@@ -51,4 +51,11 @@ namespace Entities
             UrlFoto = (string)fila["UrlFoto"];
         }
     }
+
+    public enum Cargos
+    {
+        SOCIO = 1,
+        CAPITAN = 2,
+        SOCIO_CAPITAN = 3
+    }
 }
