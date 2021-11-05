@@ -12,7 +12,6 @@ namespace DataAccess
         {
             try {
                 List<Parametro> parametros = new List<Parametro>();
-
                 parametros.Add(new Parametro("@Matricula", SqlDbType.VarChar, barco.Matricula));
                 parametros.Add(new Parametro("@NoAmarre", SqlDbType.VarChar, barco.NoAmarre));
                 parametros.Add(new Parametro("@Nombre", SqlDbType.VarChar, barco.Nombre));
@@ -80,10 +79,7 @@ namespace DataAccess
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
                 parametros.Add(new Parametro("@IdOwner", SqlDbType.Int, idOwner));
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarBarcosPorOwner", parametros);
-                foreach (DataRow registro in datosBarcos.Rows)
-                {
-                    barcos.Add(new VOBarco(registro));
-                }
+                foreach (DataRow registro in datosBarcos.Rows) barcos.Add(new VOBarco(registro));
             }
             catch (Exception)
             {

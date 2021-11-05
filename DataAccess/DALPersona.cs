@@ -60,7 +60,7 @@ namespace DataAccess
             {
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
-                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsularPersonas", parametros);
+                DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarPersonas", parametros);
                 foreach (DataRow registro in datosBarcos.Rows)
                 {
                     personas.Add(new VOPersona(registro));

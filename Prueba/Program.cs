@@ -9,14 +9,8 @@ namespace Prueba
     {
         static void Main(string[] args)
         {
-            VOPersona persona = new VOPersona("9212856444", "Col. Miguel Hidalgo", 
-                "Angel Daniel", "adaniellova@gmail.com", ((int)Cargos.CAPITAN), true, 
-                "https://photo.isu.pub/angeldaniel321/photo_large.jpg");
-
-            DALPersona.InsertarPersona(persona);
-
-            List<VOBarco> barcos = DALBarco.ConsultarBarcos(null);
-            barcos.ForEach((VOBarco barco) => Console.WriteLine(barco.IdBarco));
+            List<VOPersona> personas = DALPersona.ConsultarPersonas(null);
+            personas.ForEach((VOPersona persona) => Console.WriteLine(persona.Nombre));
             Console.ReadKey();
         }
     }
