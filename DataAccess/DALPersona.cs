@@ -93,5 +93,42 @@ namespace DataAccess
             }
             return personas;
         }
+
+        public static bool ActualizarPersona(VOPersona persona)
+        {
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, persona.IdPersona));
+                parametros.Add(new Parametro("@Nombre", SqlDbType.VarChar, persona.Nombre));
+                parametros.Add(new Parametro("@Direccion", SqlDbType.VarChar, persona.Direccion));
+                parametros.Add(new Parametro("@Telefono", SqlDbType.VarChar, persona.Telefono));
+                parametros.Add(new Parametro("@Correo", SqlDbType.VarChar, persona.Correo));
+                parametros.Add(new Parametro("@Cargo", SqlDbType.Int, persona.Cargo));
+                parametros.Add(new Parametro("@UrlFoto", SqlDbType.VarChar, persona.UrlFoto));
+                parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, persona.Disponibilidad));
+                int rows = Consulta.EjecutarSinConsulta("SP_ActualizarPersona", parametros);
+                return (rows != 0);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo actualizar en la base de datos");
+            }
+        }
+
+        public static bool EliminarPersona(int idPersona)
+        {
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, idPersona));
+                int rows = Consulta.EjecutarSinConsulta("SP_EliminarPersona", parametros);
+                return (rows != 0);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo eliminar en la base de datos");
+            }
+        }
     }
 }
