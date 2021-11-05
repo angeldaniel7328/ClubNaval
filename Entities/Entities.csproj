@@ -45,6 +45,7 @@
     <Compile Include="VOBarco.cs" />
     <Compile Include="VOPersona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VOSalidaExtendida.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
