@@ -60,10 +60,7 @@ namespace DataAccess
                 datos = cmd.ExecuteReader();
                 while (datos.Read())
                 {
-                    for (int i=0; i<registro.Count; i++)
-                    {
-                        registro.Add(datos.GetName(i), datos.GetValue(i));
-                    }
+                    for (int i=0; i<datos.FieldCount; i++) registro.Add(datos.GetName(i), datos.GetValue(i));
                 }
             }
             catch (Exception)
