@@ -59,7 +59,8 @@ namespace DataAccess
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@Estado", SqlDbType.VarChar, estado));
                 DataTable datosSalidas = Consulta.EjecutarConLlenado("SP_ConsultarSalidasPorEstado", parametros);
-                foreach (DataRow registro in datosSalidas.Rows) salidas.Add(new VOSalida(registro));
+                foreach (DataRow registro in datosSalidas.Rows) 
+                    salidas.Add(new VOSalida(registro));
             }
             catch (Exception)
             {
@@ -103,7 +104,8 @@ namespace DataAccess
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@Estado", SqlDbType.VarChar, estado));
                 DataTable datosSalidas = Consulta.EjecutarConLlenado("SP_ConsultarSalidasPorEstadoExtendida", parametros);
-                foreach (DataRow registro in datosSalidas.Rows) salidas.Add(new VOSalidaExtendida(registro));
+                foreach (DataRow registro in datosSalidas.Rows) 
+                    salidas.Add(new VOSalidaExtendida(registro));
             }
             catch (Exception)
             {

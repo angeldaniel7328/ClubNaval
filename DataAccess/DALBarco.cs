@@ -58,7 +58,8 @@ namespace DataAccess
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarBarcos", parametros);
-                foreach (DataRow registro in datosBarcos.Rows) barcos.Add(new VOBarco(registro));
+                foreach (DataRow registro in datosBarcos.Rows) 
+                    barcos.Add(new VOBarco(registro));
             }
             catch (Exception)
             {
@@ -76,7 +77,8 @@ namespace DataAccess
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
                 parametros.Add(new Parametro("@IdOwner", SqlDbType.Int, idOwner));
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarBarcosPorOwner", parametros);
-                foreach (DataRow registro in datosBarcos.Rows) barcos.Add(new VOBarco(registro));
+                foreach (DataRow registro in datosBarcos.Rows) 
+                    barcos.Add(new VOBarco(registro));
             }
             catch (Exception)
             {

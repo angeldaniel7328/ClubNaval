@@ -34,7 +34,7 @@ namespace DataAccess
             try
             {
                 List<Parametro> parametros = new List<Parametro>();
-                parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, idPersona));
+                parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, idPersona));   
                 Dictionary<string, object> datos = Consulta.EjecutarLectura("SP_ConsultarPersonaPorId", parametros);
                 string telefono = (string)datos["Telefono"];
                 string direccion = (string)datos["Direccion"];
@@ -60,7 +60,8 @@ namespace DataAccess
                 List<Parametro> parametros = new List<Parametro>();
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarPersonas", parametros);
-                foreach (DataRow registro in datosBarcos.Rows) personas.Add(new VOPersona(registro));
+                foreach (DataRow registro in datosBarcos.Rows) 
+                    personas.Add(new VOPersona(registro));
             }
             catch (Exception)
             {
@@ -78,7 +79,8 @@ namespace DataAccess
                 parametros.Add(new Parametro("@Cargo", SqlDbType.Int, cargo));
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));       
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarPersonasPorCargo", parametros);
-                foreach (DataRow registro in datosBarcos.Rows) personas.Add(new VOPersona(registro));
+                foreach (DataRow registro in datosBarcos.Rows) 
+                    personas.Add(new VOPersona(registro));
             }
             catch (Exception)
             {
