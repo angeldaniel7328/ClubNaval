@@ -41,4 +41,10 @@ namespace Entities
             IdPersona = idPersona;
         }
     }
+
+    public enum EstadoSalida
+    {
+        EN_PROCESO,
+        FINALIZADA
+    }
 }
