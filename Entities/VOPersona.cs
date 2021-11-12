@@ -50,9 +50,16 @@ namespace Entities
             Disponibilidad = (bool)fila["Disponibilidad"];
             UrlFoto = (string)fila["UrlFoto"];
         }
+
+        public VOPersona() { }
+
+        public override string ToString()
+        {
+            return IdPersona + Environment.NewLine + Nombre + Environment.NewLine;
+        }
     }
 
-    public enum Cargos
+    public enum CargoPersona
     {
         SOCIO = 1,
         CAPITAN = 2,

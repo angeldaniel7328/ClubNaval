@@ -113,5 +113,21 @@ namespace DataAccess
             }
             return salidas;
         }
+
+        public static bool FinalizarSalida(int idSalida, string estado)
+        {
+            try
+            {
+                List<Parametro> parametros = new List<Parametro>();
+                parametros.Add(new Parametro("@IdSalida", SqlDbType.Int, idSalida));
+                parametros.Add(new Parametro("@Estado", SqlDbType.VarChar, estado));
+                int rows = Consulta.EjecutarSinConsulta("SP_FinalizarSalida", parametros);
+                return (rows == 1);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("No se pudo finalizar la salida en la base de datos");
+            }
+        }
     }
 }
