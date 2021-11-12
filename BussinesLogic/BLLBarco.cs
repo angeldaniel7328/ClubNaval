@@ -7,7 +7,7 @@ namespace BussinesLogic
 {
     public static class BLLBarco
     {
-        public static bool Insertar(VOBarco barco)
+        public static bool InsertarBarco(VOBarco barco)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace BussinesLogic
             }
         }
 
-        public static bool Actualizar(VOBarco barco)
+        public static bool ActualizarBarco(VOBarco barco)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace BussinesLogic
             }
         }
 
-        public static bool Eliminar(string idBarco)
+        public static bool EliminarBarco(string idBarco)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace BussinesLogic
             }
         }
 
-        public static VOBarco ConsultarBarco(string idBarco)
+        public static VOBarco ConsultarBarcoPorId(string idBarco)
         {
             VOBarco barco;
             try
