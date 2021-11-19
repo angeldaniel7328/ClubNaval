@@ -31,6 +31,11 @@ namespace BussinesLogic
             }
         }
 
+        public static List<VOPersona> CalatogoDueños(int[] cargo, bool v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool EliminarPersona(string idPersona)
         {
             try
