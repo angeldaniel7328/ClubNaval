@@ -7,9 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace ClubNavalWeb.Catalogo.Barcos
 {
-    public partial class EditarBarco : System.Web.UI.Page
+    public partial class EditarBarco : Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSubirImagen_Click(object sender, EventArgs e)
         {
 
         }

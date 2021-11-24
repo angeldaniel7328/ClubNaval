@@ -12,7 +12,7 @@
         </div>
         <div class ="row col-md-10 col-md-offset-1">
             <asp:GridView ID="gvBarcos" runat="server" AutoGenerateColumns="false"
-                DataKeyNames="IdBarco" OnRowCommand=>
+                DataKeyNames="IdBarco" OnRowCommand="gvBarcos_RowCommand">
                 <Columns>
                     <asp:ImageField HeaderText="Foto" ReadOnly="true"
                         DataImageUrlField="UrlFoto" ControlStyle-Width="110px"

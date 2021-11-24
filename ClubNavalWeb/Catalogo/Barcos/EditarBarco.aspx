@@ -58,7 +58,7 @@
             <div class="colo-md-12">
                 <label>Selecciona Foto:</label>
                 <input type="file" class="btn btn-default btn-file" runat="server" id="SubeImagen" style="display: inline-block;" />
-                <asp:Button ID="btnSubeImagen" runat="server" Text="Subir Imagen" CssClass="btn btn-primary btn-xs" OnClick= />
+                <asp:Button ID="btnSubirImagen" runat="server" Text="Subir Imagen" CssClass="btn btn-primary btn-xs" OnClick="btnSubirImagen_Click" />
             </div>
         </div>
         <div class="row form-group">
@@ -73,7 +73,7 @@
                 <asp:Button ID="btnGuardar" ValidationGroup="Guardar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick= />
             </div>
             <div class="col-md-2">
-                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick />
+                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
             </div>
         </div>
     </div>

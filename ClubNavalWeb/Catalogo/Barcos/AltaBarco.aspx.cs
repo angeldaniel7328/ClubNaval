@@ -22,7 +22,27 @@ namespace ClubNavalWeb.Catalogo.Barcos
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                VOBarco barco = new VOBarco
+                {
+                    Matricula = txtMatricula.Text,
+                    NoAmarre = txtNoAmarre.Text,
+                    Nombre = txtNombre.Text,
+                    Cuota = double.Parse(txtCuota.Text),
+                    IdOwner = int.Parse(ddlOwner.SelectedValue),
+                    UrlFoto = lblUrlFoto.InnerText,
+                    Disponibilidad = true
+                };
+                BLLBarco.InsertarBarco(barco);
+                LimpiarFormulario();
+                Response.Redirect("ListaBarco.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), $"Mensaje de error",
+                    "alert(Se registró un error al realizar la operación " + ex.Message +");", true);
+            }
         }
 
         protected void btnSubirImagen_Click(object sender, EventArgs e)
@@ -52,7 +72,7 @@ namespace ClubNavalWeb.Catalogo.Barcos
         public void CatalogoDueños(DropDownList dll)
         {
             int[] cargo = { 1, 3 };
-            List<VOPersona> dueños = BLLPersona.CatalogoPersona(cargo, true);
+            var dueños = BLLPersona.CatalogoPersona(cargo, true);
             dueños.ForEach(persona=> dll.Items.Add(new ListItem(persona.Nombre, persona.IdPersona.ToString())));
         }
 
