@@ -107,6 +107,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Catalogo\Barcos\AltaBarco.aspx" />
+    <Content Include="Catalogo\Barcos\EditarBarco.aspx" />
+    <Content Include="Catalogo\Barcos\ListaBarcos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -176,6 +178,20 @@
     </Compile>
     <Compile Include="Catalogo\Barcos\AltaBarco.aspx.designer.cs">
       <DependentUpon>AltaBarco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Barcos\EditarBarco.aspx.cs">
+      <DependentUpon>EditarBarco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Barcos\EditarBarco.aspx.designer.cs">
+      <DependentUpon>EditarBarco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Barcos\ListaBarcos.aspx.cs">
+      <DependentUpon>ListaBarcos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Barcos\ListaBarcos.aspx.designer.cs">
+      <DependentUpon>ListaBarcos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

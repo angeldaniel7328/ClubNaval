@@ -2,6 +2,7 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,13 +27,32 @@ namespace ClubNavalWeb.Catalogo.Barcos
 
         protected void btnSubirImagen_Click(object sender, EventArgs e)
         {
-
+            if (subirImagen.Value.Length > 0)
+            {
+                var fileName = Path.GetFileName(subirImagen.PostedFile.FileName);
+                var extension = Path.GetExtension(fileName).ToLower();
+                if (extension!=".jpg" && extension != ".png")
+                {
+                    lblUrlFoto.InnerText = "Archivo no valido";
+                    return;
+                }
+                var path = Server.MapPath("~/Imagenes/Barcos/");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                subirImagen.PostedFile.SaveAs(path + fileName);
+                var url = "/Imagenes/Barcos/" + fileName;
+                lblUrlFoto.InnerText = url;
+                imgFotoBarco.ImageUrl = url;
+                btnGuardar.Visible = true;
+            }
         }
 
         public void CatalogoDueños(DropDownList dll)
         {
             int[] cargo = { 1, 3 };
-            List<VOPersona> dueños = BLLPersona.CalatogoDueños(cargo, true);
+            List<VOPersona> dueños = BLLPersona.CatalogoPersona(cargo, true);
             dueños.ForEach(persona=> dll.Items.Add(new ListItem(persona.Nombre, persona.IdPersona.ToString())));
         }
 

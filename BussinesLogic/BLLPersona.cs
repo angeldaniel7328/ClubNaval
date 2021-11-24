@@ -31,11 +31,6 @@ namespace BussinesLogic
             }
         }
 
-        public static List<VOPersona> CalatogoDueños(int[] cargo, bool v)
-        {
-            throw new NotImplementedException();
-        }
-
         public static bool EliminarPersona(string idPersona)
         {
             try
@@ -78,18 +73,28 @@ namespace BussinesLogic
             return personas;
         }
 
-        public static List<VOPersona> ConsultarPersonasPorCargo(int cargo, bool? disponibilidad)
+        public static List<VOPersona> ConsultarPersonasPorCargo(string cargo, bool? disponibilidad)
         {
             List<VOPersona> personas;
             try
             {
-                personas = DALPersona.ConsultarPersonasPorCargo(cargo, disponibilidad);
+                personas = DALPersona.ConsultarPersonasPorCargo(int.Parse(cargo), disponibilidad);
             }
             catch (Exception e)
             {
                 throw new ArgumentException("Ocurrio un error " + e.Message);
             }
             return personas;
+        }
+
+        public static List<VOPersona> CatalogoPersona(int[] cargo, bool? disponibilidad)
+        {
+            List<VOPersona> catalogo = new List<VOPersona>();
+            foreach (int c in cargo)
+            {
+                catalogo.AddRange(ConsultarPersonasPorCargo(c.ToString(), disponibilidad));
+            }
+            return catalogo;
         }
     }
 }
