@@ -49,9 +49,9 @@ namespace Entities
             Matricula = (string)fila["Matricula"];
             NoAmarre = (string)fila["NoAmarre"];
             Nombre = (string)fila["Nombre"];
-            Cuota = (double?)fila["Cuota"];
-            IdOwner = (int)fila["IdOwner"];
-            Disponibilidad = (bool?)fila["Disponibilidad"];
+            Cuota = double.Parse(fila["Cuota"].ToString());
+            IdOwner = int.Parse(fila["IdOwner"].ToString());
+            Disponibilidad = bool.Parse(fila["Disponibilidad"].ToString());
             UrlFoto = (string)fila["UrlFoto"];
         }
 
