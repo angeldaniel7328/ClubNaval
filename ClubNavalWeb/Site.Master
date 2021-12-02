@@ -47,13 +47,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">Club Naval Coatzacoalcos</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li class="dropdown">
+                            <a runat="server" href="~/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Catálogos
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/Catalogo/Barcos/AltaBarco.aspx">Alta Barco</a></li>
+                                <li><a runat="server" href="~/Catalogo/Barcos/AltaPersona.aspx">Alta Persona</a></li>
+                                <li class="separator" role="separator"></li>
+                                <li><a runat="server" href="~/Catalogo/Barcos/ListaBarcos.aspx">Lista Barcos</a></li>
+                                <li><a runat="server" href="~/Catalogo/Barcos/ListaPersonas.aspx">Lista Personas</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

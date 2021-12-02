@@ -26,7 +26,7 @@
                     <asp:BoundField HeaderText="No Amarre" ItemStyle-Width="80px"
                         DataField="NoAmarre" />
                     <asp:BoundField HeaderText="Dueño" ItemStyle-Width="80px"
-                        DataField="IdPersona" />
+                        DataField="IdOwner" />
                     <asp:TemplateField HeaderText="Disponible" ItemStyle-Width="50px">
                         <ItemTemplate>
                             <div style="width:100%">

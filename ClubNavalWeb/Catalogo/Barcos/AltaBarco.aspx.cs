@@ -36,7 +36,7 @@ namespace ClubNavalWeb.Catalogo.Barcos
                 };
                 BLLBarco.InsertarBarco(barco);
                 LimpiarFormulario();
-                Response.Redirect("ListaBarco.aspx");
+                Response.Redirect("ListaBarcos.aspx");
             }
             catch (Exception ex)
             {
