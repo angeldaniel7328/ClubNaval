@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Entities;
 using BussinesLogic;
 using System.IO;
+using System.Drawing;
 
 namespace ClubNavalWeb.Catalogo.Barcos
 {
@@ -18,28 +19,29 @@ namespace ClubNavalWeb.Catalogo.Barcos
             {
                 CatalogoDueños(ddlOwner);
                 if (Request.QueryString["Id"] == null)
-                {
                     Response.Redirect("ListaBarcos.aspx");
-                }
                 else
                 {
-                    bool disponibilidad = true;
-                    string idBarco = Request.QueryString["Id"].ToString();
-                    VOBarco barco = BLLBarco.ConsultarBarcoPorId(idBarco);
+                    var idBarco = Request.QueryString["Id"].ToString();
+                    var barco = BLLBarco.ConsultarBarcoPorId(idBarco);
                     CargarFormulario(barco);
-                    disponibilidad = (bool)barco.Disponibilidad;
-                    if (disponibilidad)
-                    {
-                        lblBarco.ForeColor = System.Drawing.Color.Green;
-                        btnEliminar.Visible = true;
-                    }
-                    else
-                    {
-                        lblBarco.ForeColor = System.Drawing.Color.Red;
-                        btnEliminar.Visible = false;
-                    }
+                    var disponibilidad = (bool)barco.Disponibilidad;
+                    lblBarco.ForeColor = disponibilidad ? Color.Green : Color.Red;
+                    btnEliminar.Visible = disponibilidad;
                 }
             }
+        }
+
+        private void CargarFormulario(VOBarco barco)
+        {
+            lblBarco.Text = barco.IdBarco.ToString();
+            txtMatricula.Text = barco.Matricula.ToString();
+            txtNoAmarre.Text = barco.NoAmarre;
+            txtNombre.Text = barco.Nombre;
+            txtCuota.Text = barco.Cuota.ToString();
+            ddlOwner.SelectedValue = barco.IdOwner.ToString();
+            lblUrlFoto.InnerText = barco.UrlFoto;
+            imgFotoBarco.ImageUrl = barco.UrlFoto;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace ClubNavalWeb.Catalogo.Barcos
         {
             try
             {
-                VOBarco barco = new VOBarco
+                var barco = new VOBarco
                 {
                     IdBarco = int.Parse(lblBarco.Text),
                     Matricula = txtMatricula.Text,
@@ -108,8 +110,7 @@ namespace ClubNavalWeb.Catalogo.Barcos
 
         public void CatalogoDueños(DropDownList dll)
         {
-            int[] cargo = { 1, 3 };
-            var dueños = BLLPersona.CatalogoPersona(cargo, true);
+            var dueños = BLLPersona.CatalogoPersona(new int[] { 1, 3 }, true);
             dueños.ForEach(persona => dll.Items.Add(new ListItem(persona.Nombre, persona.IdPersona.ToString())));
         }
 
@@ -126,16 +127,5 @@ namespace ClubNavalWeb.Catalogo.Barcos
             btnGuardar.Visible = true;
         }
 
-        public void CargarFormulario(VOBarco barco)
-        {
-            lblBarco.Text = barco.IdBarco.ToString();
-            txtMatricula.Text = barco.IdBarco.ToString();
-            txtNoAmarre.Text = barco.NoAmarre.ToString();
-            txtNombre.Text = barco.Nombre.ToString();
-            txtCuota.Text = barco.Cuota.ToString();
-            ddlOwner.SelectedValue = barco.IdOwner.ToString();
-            lblUrlFoto.InnerText = barco.UrlFoto.ToString();
-            imgFotoBarco.ImageUrl = barco.UrlFoto;
-        }
     }
 }

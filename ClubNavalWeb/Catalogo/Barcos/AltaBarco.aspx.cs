@@ -15,16 +15,14 @@ namespace ClubNavalWeb.Catalogo.Barcos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
                 CatalogoDueños(ddlOwner);
-            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                VOBarco barco = new VOBarco
+                var barco = new VOBarco
                 {
                     Matricula = txtMatricula.Text,
                     NoAmarre = txtNoAmarre.Text,
@@ -83,9 +81,9 @@ namespace ClubNavalWeb.Catalogo.Barcos
             txtNombre.Text = string.Empty;
             txtCuota.Text = string.Empty;
             ddlOwner.SelectedIndex = 0;
-            lblUrlFoto.InnerText = "";
-            imgFotoBarco.ImageUrl = "";
-            btnGuardar.Visible = true;
+            lblUrlFoto.InnerText = string.Empty;
+            imgFotoBarco.ImageUrl = string.Empty;
+            btnGuardar.Visible = false;
         }
     }
 }

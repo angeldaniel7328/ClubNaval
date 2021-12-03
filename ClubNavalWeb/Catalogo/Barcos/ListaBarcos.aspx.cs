@@ -30,7 +30,7 @@ namespace ClubNavalWeb.Catalogo.Barcos
             {
                 var index = int.Parse(e.CommandArgument.ToString());
                 var idBarco = gvBarcos.DataKeys[index].Values["IdBarco"].ToString();
-                Response.Redirect("EditarBarco.aspx?id="+idBarco);
+                Response.Redirect("EditarBarco.aspx?id=" + idBarco);
             }
         }
     }
