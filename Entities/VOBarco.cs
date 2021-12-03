@@ -45,7 +45,7 @@ namespace Entities
 
         public VOBarco(DataRow fila)
         {
-            IdBarco = (int)fila["IdBarco"];
+            IdBarco = int.Parse(fila["IdBarco"].ToString());
             Matricula = (string)fila["Matricula"];
             NoAmarre = (string)fila["NoAmarre"];
             Nombre = (string)fila["Nombre"];

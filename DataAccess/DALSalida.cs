@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -40,8 +37,8 @@ namespace DataAccess
                 DateTime fechaHoraSalida = (DateTime)datos["FechaHoraSalida"];
                 string destino = (string)datos["Destino"];
                 string estado = (string)datos["Estado"];
-                int idBarco = (int)datos["IdBarco"];
-                int idPersona = (int)datos["IdPersona"];
+                int idBarco = int.Parse(datos["IdBarco"].ToString());
+                int idPersona = int.Parse(datos["IdPersona"].ToString());
                 salida = new VOSalida(idSalida, fechaHoraSalida, destino, estado, idBarco, idPersona);
             }
             catch (Exception)
@@ -80,8 +77,8 @@ namespace DataAccess
                 DateTime fechaHoraSalida = (DateTime)datos["FechaHoraSalida"];
                 string destino = (string)datos["Destino"];
                 string estado = (string)datos["Estado"];
-                int idBarco = (int)datos["IdBarco"];
-                int idPersona = (int)datos["IdPersona"];
+                int idBarco = int.Parse(datos["IdBarco"].ToString());
+                int idPersona = int.Parse(datos["IdPersona"].ToString());
                 string nombreBarco = (string)datos["NombreBarco"];
                 string urlFotoBarco = (string)datos["UrlFotoBarco"];
                 string nombreCapitan = (string)datos["NombreCapitan"];

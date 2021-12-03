@@ -12,7 +12,6 @@ namespace DataAccess
             try
             {
                 List<Parametro> parametros = new List<Parametro>();
-                //parametros.Add(new Parametro("@IdPersona", SqlDbType.Int, persona.IdPersona));
                 parametros.Add(new Parametro("@Nombre", SqlDbType.VarChar, persona.Nombre));
                 parametros.Add(new Parametro("@Direccion", SqlDbType.VarChar, persona.Direccion));
                 parametros.Add(new Parametro("@Telefono", SqlDbType.VarChar, persona.Telefono));
@@ -40,8 +39,8 @@ namespace DataAccess
                 string direccion = (string)datos["Direccion"];
                 string nombre = (string)datos["Nombre"];
                 string correo = (string)datos["Correo"];
-                int cargo = (int)datos["Cargo"];
-                bool disponibilidad = (bool)datos["Disponibilidad"];
+                int cargo = int.Parse(datos["Cargo"].ToString());
+                bool disponibilidad = bool.Parse(datos["Disponibilidad"].ToString());
                 string urlFoto = (string)datos["UrlFoto"];
                 persona = new VOPersona(idPersona, telefono, direccion, nombre, correo, cargo, disponibilidad, urlFoto);
             }
@@ -79,7 +78,7 @@ namespace DataAccess
                 parametros.Add(new Parametro("@Cargo", SqlDbType.Int, cargo));
                 parametros.Add(new Parametro("@Disponibilidad", SqlDbType.Bit, disponibilidad));       
                 DataTable datosBarcos = Consulta.EjecutarConLlenado("SP_ConsultarPersonasPorCargo", parametros);
-                foreach (DataRow registro in datosBarcos.Rows) 
+                foreach (DataRow registro in datosBarcos.Rows)
                     personas.Add(new VOPersona(registro));
             }
             catch (Exception)

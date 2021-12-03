@@ -38,9 +38,9 @@ namespace DataAccess
                 string matricula = (string)datos["Matricula"];
                 string noAmarre = (string)datos["NoAmarre"];
                 string nombre = (string)datos["Nombre"];
-                double cuota = (double)datos["Cuota"];
-                int idOwner = (int)datos["IdOwner"];
-                bool disponibilidad = (bool)datos["Disponibilidad"];
+                double cuota = double.Parse(datos["Cuota"].ToString());
+                int idOwner = int.Parse(datos["IdOwner"].ToString());
+                bool disponibilidad = bool.Parse(datos["Disponibilidad"].ToString());
                 string urlFoto = (string)datos["UrlFoto"];
                 barco = new VOBarco(idBarco, matricula, noAmarre, nombre, cuota, idOwner, disponibilidad, urlFoto);
             }

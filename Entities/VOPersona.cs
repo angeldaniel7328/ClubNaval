@@ -41,22 +41,18 @@ namespace Entities
 
         public VOPersona(DataRow fila)
         {
-            IdPersona = (int)fila["IdPersona"];
+            IdPersona = int.Parse(fila["IdPersona"].ToString());
             Telefono = (string)fila["Telefono"];
             Direccion = (string)fila["Direccion"];
             Nombre = (string)fila["Nombre"];
             Correo = (string)fila["Correo"];
-            Cargo = (int)fila["Cargo"];
-            Disponibilidad = (bool)fila["Disponibilidad"];
+            Cargo = int.Parse(fila["Cargo"].ToString());
+            Disponibilidad = bool.Parse(fila["Disponibilidad"].ToString());
             UrlFoto = (string)fila["UrlFoto"];
         }
 
         public VOPersona() { }
 
-        public override string ToString()
-        {
-            return IdPersona + Environment.NewLine + Nombre + Environment.NewLine;
-        }
     }
 
     public enum CargoPersona

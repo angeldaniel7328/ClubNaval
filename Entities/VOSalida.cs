@@ -14,12 +14,12 @@ namespace Entities
 
         public VOSalida(DataRow fila)
         {
-            IdSalida = (int)fila["IdSalida"];
+            IdSalida = int.Parse(fila["IdSalida"].ToString());
             FechaHoraSalida = (DateTime?)fila["FechaHoraSalida"];
             Destino = (string)fila["Destino"];
             Estado = (string)fila["Estado"];
-            IdBarco = (int)fila["IdBarco"];
-            IdPersona = (int)fila["IdPersona"];
+            IdBarco = int.Parse(fila["IdBarco"].ToString());
+            IdPersona = int.Parse(fila["IdPersona"].ToString());
         }
 
         public VOSalida(int idSalida, DateTime? fechaHoraSalida, string destino, string estado, int idBarco, int idPersona)
@@ -40,6 +40,12 @@ namespace Entities
             IdBarco = idBarco;
             IdPersona = idPersona;
         }
+
+        public VOSalida()
+        {
+
+        }
+
     }
 
     public enum EstadoSalida
@@ -47,4 +53,5 @@ namespace Entities
         EN_PROCESO,
         FINALIZADA
     }
+
 }
