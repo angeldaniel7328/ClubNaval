@@ -105,16 +105,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Catalogo\Barcos\AltaBarco.aspx" />
     <Content Include="Catalogo\Barcos\EditarBarco.aspx" />
     <Content Include="Catalogo\Barcos\ListaBarcos.aspx" />
     <Content Include="Catalogo\Personas\AltaPersona.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="Catalogo\Personas\EditarPersona.aspx" />
+    <Content Include="Catalogo\Personas\ListaPersonas.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -129,13 +130,19 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Salidas\AltaSalida.aspx" />
+    <Content Include="Salidas\DetalleSalida.aspx" />
+    <Content Include="Salidas\SalidasFinalizadas.aspx" />
+    <Content Include="Salidas\SalidasProceso.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.full.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -165,13 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Catalogo\Barcos\AltaBarco.aspx.cs">
       <DependentUpon>AltaBarco.aspx</DependentUpon>
@@ -201,12 +201,19 @@
     <Compile Include="Catalogo\Personas\AltaPersona.aspx.designer.cs">
       <DependentUpon>AltaPersona.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="Catalogo\Personas\EditarPersona.aspx.cs">
+      <DependentUpon>EditarPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="Catalogo\Personas\EditarPersona.aspx.designer.cs">
+      <DependentUpon>EditarPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Personas\ListaPersonas.aspx.cs">
+      <DependentUpon>ListaPersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Personas\ListaPersonas.aspx.designer.cs">
+      <DependentUpon>ListaPersonas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -219,6 +226,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salidas\AltaSalida.aspx.cs">
+      <DependentUpon>AltaSalida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salidas\AltaSalida.aspx.designer.cs">
+      <DependentUpon>AltaSalida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salidas\DetalleSalida.aspx.cs">
+      <DependentUpon>DetalleSalida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salidas\DetalleSalida.aspx.designer.cs">
+      <DependentUpon>DetalleSalida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salidas\SalidasFinalizadas.aspx.cs">
+      <DependentUpon>SalidasFinalizadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salidas\SalidasFinalizadas.aspx.designer.cs">
+      <DependentUpon>SalidasFinalizadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salidas\SalidasProceso.aspx.cs">
+      <DependentUpon>SalidasProceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salidas\SalidasProceso.aspx.designer.cs">
+      <DependentUpon>SalidasProceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +268,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Utilerias\Utileria.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,8 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Catalogo\Salidas\" />
-    <Folder Include="Utilerias\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

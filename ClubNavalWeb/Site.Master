@@ -36,8 +36,13 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+
             </Scripts>
         </asp:ScriptManager>
+
+        <link href="Content/jquery.datetimepicker.css" rel="stylesheet"/>
+        <script src="Scripts/jquery.datetimepicker.full.min.js"></script>
+        <script src="Scripts/moment-with-locales.js"></script>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -58,10 +63,14 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/Catalogo/Barcos/AltaBarco.aspx">Alta Barco</a></li>
-                                <li><a runat="server" href="~/Catalogo/Barcos/AltaPersona.aspx">Alta Persona</a></li>
-                                <li class="separator" role="separator"></li>
+                                <li><a runat="server" href="~/Catalogo/Personas/AltaPersona.aspx">Alta Persona</a></li>
+                                <li role="separator" class="divider"></li>
                                 <li><a runat="server" href="~/Catalogo/Barcos/ListaBarcos.aspx">Lista Barcos</a></li>
-                                <li><a runat="server" href="~/Catalogo/Barcos/ListaPersonas.aspx">Lista Personas</a></li>
+                                <li><a runat="server" href="~/Catalogo/Personas/ListaPersonas.aspx">Lista Personas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a runat="server" href="~/Salidas/AltaSalida.aspx">Alta Salida</a></li>
+                                <li><a runat="server" href="~/Salidas/SalidasProceso.aspx">Salidas en proceso</a></li>
+                                <li><a runat="server" href="~/Salidas/SalidasFinalizadas.aspx">Salidas finalizadas</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -73,7 +82,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: ClubNavalWeb.Utilerias.Utileria.pie %></p>
             </footer>
         </div>
 
