@@ -5,7 +5,7 @@ using DataAccess;
 
 namespace BussinesLogic
 {
-    public static class DLLSalida
+    public static class BLLSalida
     {
         public static bool InsertarSalida(VOSalida salida)
         {

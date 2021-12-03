@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLBarco.cs" />
     <Compile Include="BLLPersona.cs" />
-    <Compile Include="DLLSalida.cs" />
+    <Compile Include="BLLSalida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

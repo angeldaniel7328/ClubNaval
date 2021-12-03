@@ -7,7 +7,7 @@ namespace BussinesLogic
 {
     public static class BLLPersona
     {
-        public static bool InsertarPersonna(VOPersona persona)
+        public static bool InsertarPersona(VOPersona persona)
         {
             try
             {
