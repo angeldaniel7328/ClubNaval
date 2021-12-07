@@ -65,12 +65,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabasClubNaval.mdf">
+    <Content Include="DBClubNaval.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DatabasClubNaval_log.ldf">
+    <Content Include="DBClubNaval_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DatabasClubNaval.mdf</DependentUpon>
+      <DependentUpon>DBClubNaval.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
