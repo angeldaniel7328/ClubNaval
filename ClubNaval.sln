@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinesLogic", "BussinesLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{39FFE41E-B178-455D-823A-CE1B36730F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubNavalWeb", "ClubNavalWeb\ClubNavalWeb.csproj", "{93FA59D7-D4A6-4FA9-826F-E063D14F4A48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "ClubNavalWeb\Presentation.csproj", "{93FA59D7-D4A6-4FA9-826F-E063D14F4A48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
