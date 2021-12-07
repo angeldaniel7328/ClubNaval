@@ -8,15 +8,56 @@ using Entities;
 using BussinesLogic;
 using System.IO;
 using ClubNavalWeb.Utilerias;
+using System.Drawing;
 
 namespace ClubNavalWeb.Catalogo.Personas
 {
-    public partial class AltaPersona : Page
+    public partial class EditarPersona : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 Utileria.EnumToListBox(typeof(CargoPersona), ddlCargo, true);
+                if (Request.QueryString["Id"] == null)
+                    Response.Redirect("ListaPersonas.aspx");
+                else
+                {
+                    var idPersona = Request.QueryString["Id"].ToString();
+                    var persona = BLLPersona.ConsultarPersonaPorId(idPersona);
+                    CargarFormulario(persona);
+                    var disponibilidad = (bool)persona.Disponibilidad;
+                    lblPersona.ForeColor = disponibilidad ? Color.Green : Color.Red;
+                    btnEliminar.Visible = disponibilidad;
+                }
+            }
+        }
+
+        private void CargarFormulario(VOPersona persona)
+        {
+            lblPersona.Text = persona.IdPersona.ToString();
+            txtNombre.Text = persona.Nombre;
+            txtTelefono.Text = persona.Telefono;
+            txtDireccion.Text = persona.Direccion;
+            txtCorreo.Text = persona.Correo;
+            ddlCargo.SelectedValue = persona.Correo;
+            lblUrlFoto.InnerText = persona.UrlFoto;
+            imgFotoPersona.ImageUrl = persona.UrlFoto;
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BLLBarco.EliminarBarco(lblPersona.Text);
+                LimpiarFormulario();
+                Response.Redirect("ListaPersonas.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), $"Mensaje de error",
+                    "alert(Se registró un error al realizar la operación " + ex.Message + ");", true);
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -25,6 +66,7 @@ namespace ClubNavalWeb.Catalogo.Personas
             {
                 var persona = new VOPersona
                 {
+                    IdPersona = int.Parse(lblPersona.Text.ToString()),
                     Telefono = txtTelefono.Text,
                     Direccion = txtDireccion.Text,
                     Nombre = txtNombre.Text,
@@ -32,7 +74,7 @@ namespace ClubNavalWeb.Catalogo.Personas
                     Cargo = int.Parse(ddlCargo.SelectedValue),
                     UrlFoto = lblUrlFoto.InnerText
                 };
-                BLLPersona.InsertarPersona(persona);
+                BLLPersona.ActualizarPersona(persona);
                 LimpiarFormulario();
                 Response.Redirect("ListaPersonas.aspx");
             }
@@ -45,9 +87,9 @@ namespace ClubNavalWeb.Catalogo.Personas
 
         protected void btnSubirImagen_Click(object sender, EventArgs e)
         {
-            if (subirImagen.Value.Length > 0)
+            if (SubirImagen.Value.Length > 0)
             {
-                var fileName = Path.GetFileName(subirImagen.PostedFile.FileName);
+                var fileName = Path.GetFileName(SubirImagen.PostedFile.FileName);
                 var extension = Path.GetExtension(fileName).ToLower();
                 if (extension != ".jpg" && extension != ".png")
                 {
@@ -59,7 +101,7 @@ namespace ClubNavalWeb.Catalogo.Personas
                 {
                     Directory.CreateDirectory(path);
                 }
-                subirImagen.PostedFile.SaveAs(path + fileName);
+                SubirImagen.PostedFile.SaveAs(path + fileName);
                 var url = "/Imagenes/Personas/" + fileName;
                 lblUrlFoto.InnerText = url;
                 imgFotoPersona.ImageUrl = url;
@@ -69,6 +111,7 @@ namespace ClubNavalWeb.Catalogo.Personas
 
         private void LimpiarFormulario()
         {
+            lblPersona.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtTelefono.Text = string.Empty;

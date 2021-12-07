@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - Club Naval</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -37,12 +37,12 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
 
+
             </Scripts>
         </asp:ScriptManager>
-
-        <link href="Content/jquery.datetimepicker.css" rel="stylesheet"/>
-        <script src="Scripts/jquery.datetimepicker.full.min.js"></script>
-        <script src="Scripts/moment-with-locales.js"></script>
+        <link href="/Content/jquery.datetimepicker.css" rel="stylesheet" />
+        <script src="/Scripts/moment-with-locales.js"></script>
+        <script src="/Scripts/jquery.datetimepicker.full.min.js"></script>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -63,9 +63,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/Catalogo/Barcos/AltaBarco.aspx">Alta Barco</a></li>
-                                <li><a runat="server" href="~/Catalogo/Personas/AltaPersona.aspx">Alta Persona</a></li>
-                                <li role="separator" class="divider"></li>
                                 <li><a runat="server" href="~/Catalogo/Barcos/ListaBarcos.aspx">Lista Barcos</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a runat="server" href="~/Catalogo/Personas/AltaPersona.aspx">Alta Persona</a></li>
                                 <li><a runat="server" href="~/Catalogo/Personas/ListaPersonas.aspx">Lista Personas</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a runat="server" href="~/Salidas/AltaSalida.aspx">Alta Salida</a></li>
@@ -82,7 +82,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: ClubNavalWeb.Utilerias.Utileria.pie %></p>
+                <p>&copy; <%: DateTime.Now.Date.ToString() %> Angel Daniel Lopez Vazquez</p>
             </footer>
         </div>
 

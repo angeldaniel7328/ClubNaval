@@ -11,8 +11,17 @@ namespace ClubNavalWeb.Catalogo.Personas
 {
 
 
-    public partial class AltaPersona
+    public partial class EditarPersona
     {
+
+        /// <summary>
+        /// Control lblPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPersona;
 
         /// <summary>
         /// Control txtNombre.
@@ -105,31 +114,13 @@ namespace ClubNavalWeb.Catalogo.Personas
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revtxtCorreo;
 
         /// <summary>
-        /// Control ddlCargo.
+        /// Control SubirImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCargo;
-
-        /// <summary>
-        /// Control rfvddlCargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCargo;
-
-        /// <summary>
-        /// Control subirImagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile subirImagen;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile SubirImagen;
 
         /// <summary>
         /// Control btnSubirImagen.
@@ -159,6 +150,24 @@ namespace ClubNavalWeb.Catalogo.Personas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUrlFoto;
 
         /// <summary>
+        /// Control ddlCargo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCargo;
+
+        /// <summary>
+        /// Control rfvddlCargo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCargo;
+
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
@@ -166,5 +175,14 @@ namespace ClubNavalWeb.Catalogo.Personas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Control btnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
     }
 }

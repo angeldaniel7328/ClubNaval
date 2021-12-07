@@ -1,12 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AltaPersona.aspx.cs" Inherits="ClubNavalWeb.Catalogo.Personas.AltaPersona" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarPersona.aspx.cs" Inherits="ClubNavalWeb.Catalogo.Personas.EditarPersona" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
-            <h3>Alta Persona</h3>
+            <h3>Edición Persona</h3>
+            <h4>ID:
+                <asp:Label ID="lblPersona" runat="server" Text=""></asp:Label></h4>
             <hr />
         </div>
 
-        <div class="row form-group">
+         <div class="row form-group">
             <label for="<%=txtNombre.ClientID %>">Nombre:</label>
             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvtxtNombre" ValidationGroup="Guardar" runat="server" CssClass="text-danger" ControlToValidate="txtNombre" ErrorMessage="Nombre de la persona requerido"></asp:RequiredFieldValidator>
@@ -43,6 +45,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="row form-inline">
+            <div class="colo-md-12">
+                <label>Selecciona Foto:</label>
+                <input type="file" class="btn btn-default btn-file" runat="server" id="SubirImagen" style="display: inline-block;" />
+                <asp:Button ID="btnSubirImagen" runat="server" Text="Subir Imagen" CssClass="btn btn-primary btn-xs" OnClick="btnSubirImagen_Click" />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-3" style="text-align: center;">
+                <label for="<%=SubirImagen.ClientID %>">Foto:</label>
+                <asp:Image ID="imgFotoPersona" Width="200" Height="200" runat="server" />
+                <label id="lblUrlFoto" runat="server"></label>
+            </div>
+        </div>
+
         <div class="row form-group">
             <label for="<%=ddlCargo.ClientID %>">Cargo:</label>
             <asp:DropDownList ID="ddlCargo" runat="server" CssClass="form-control" style="width:25%">
@@ -50,22 +69,14 @@
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="rfvddlCargo" ValidationGroup="Guardar" runat="server" CssClass="text-danger" ControlToValidate="ddlCargo" InitialValue="0" ErrorMessage="Selecciona el cargo de la persona"></asp:RequiredFieldValidator>
         </div>
-        <div class="row form-inline">
-            <div class="colo-md-12">
-                <label>Selecciona Foto:</label>
-                <input type="file" class="btn btn-default btn-file" runat="server" id="subirImagen" style="display: inline-block;" />
-                <asp:Button ID="btnSubirImagen" runat="server" Text="Subir Imagen" CssClass="btn btn-primary btn-xs" OnClick="btnSubirImagen_Click" />
-            </div>
-        </div>
+
         <div class="row form-group">
-            <div class="col-md-3" style="text-align: center;">
-                <label for="<%=subirImagen.ClientID %>">Foto:</label>
-                <asp:Image ID="imgFotoPersona" Width="200" Height="200" runat="server" />
-                <label id="lblUrlFoto" runat="server"></label>
+            <div class="col-md-2">
+                <asp:Button ID="btnGuardar" ValidationGroup="Guardar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnGuardar_Click" />
             </div>
-        </div>
-        <div class="row form-group">
-            <asp:Button ID="btnGuardar" ValidationGroup="Guardar" runat="server" Text="Guardar" CssClass="btn btn-success" Visible="false" OnClick="btnGuardar_Click" />
+            <div class="col-md-2">
+                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
+            </div>
         </div>
     </div>
 </asp:Content>
