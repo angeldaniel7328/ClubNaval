@@ -18,11 +18,5 @@ namespace ClubNavalWeb.Utilerias
                 theListBox.Items.Add(item);
             }
         }
-
-        public static string pie = "";
-        static Utileria()
-        {
-            "41 6e 67 65 6c 20 44 61 6e 69 65 6c 20 4c 6f 70 65 7a 20 56 61 7a 71 75 65 7a".Split(' ').ToList().ForEach(hex => pie += Char.ConvertFromUtf32(Convert.ToInt32(hex, 16)));
-        }
     }
 }
