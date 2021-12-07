@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("ClubNavalWeb")]
+[assembly: AssemblyTitle("Presentation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("ClubNavalWeb")]
+[assembly: AssemblyProduct("Presentation")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

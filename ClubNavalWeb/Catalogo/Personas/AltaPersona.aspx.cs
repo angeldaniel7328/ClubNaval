@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using Entities;
 using BussinesLogic;
 using System.IO;
-using ClubNavalWeb.Utilerias;
+using Presentation.Utilerias;
 
-namespace ClubNavalWeb.Catalogo.Personas
+namespace Presentation.Catalogo.Personas
 {
     public partial class AltaPersona : Page
     {

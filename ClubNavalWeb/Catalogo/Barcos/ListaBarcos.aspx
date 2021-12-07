@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaBarcos.aspx.cs" Inherits="ClubNavalWeb.Catalogo.Barcos.ListaBarcos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaBarcos.aspx.cs" Inherits="Presentation.Catalogo.Barcos.ListaBarcos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .fotogv {

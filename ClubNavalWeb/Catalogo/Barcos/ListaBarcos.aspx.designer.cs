@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClubNavalWeb.Catalogo.Barcos
+namespace Presentation.Catalogo.Barcos
 {
 
 

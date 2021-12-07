@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClubNavalWeb.Catalogo.Personas
+namespace Presentation.Catalogo.Personas
 {
 
 

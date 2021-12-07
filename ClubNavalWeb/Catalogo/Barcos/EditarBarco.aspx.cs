@@ -9,7 +9,7 @@ using BussinesLogic;
 using System.IO;
 using System.Drawing;
 
-namespace ClubNavalWeb.Catalogo.Barcos
+namespace Presentation.Catalogo.Barcos
 {
     public partial class EditarBarco : Page
     {

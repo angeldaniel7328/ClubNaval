@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 using Entities;
 using BussinesLogic;
 using System.IO;
-using ClubNavalWeb.Utilerias;
+using Presentation.Utilerias;
 using System.Drawing;
 
-namespace ClubNavalWeb.Catalogo.Personas
+namespace Presentation.Catalogo.Personas
 {
     public partial class EditarPersona : Page
     {

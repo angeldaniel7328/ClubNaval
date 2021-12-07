@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClubNavalWeb.Salidas
+namespace Presentation.Salidas
 {
 
 

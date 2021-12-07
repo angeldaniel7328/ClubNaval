@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Entities;
 using BussinesLogic;
 
-namespace ClubNavalWeb.Salidas
+namespace Presentation.Salidas
 {
     public partial class SalidasFinalizadas : Page
     {

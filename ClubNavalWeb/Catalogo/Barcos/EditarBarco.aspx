@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarBarco.aspx.cs" Inherits="ClubNavalWeb.Catalogo.Barcos.EditarBarco" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarBarco.aspx.cs" Inherits="Presentation.Catalogo.Barcos.EditarBarco" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">

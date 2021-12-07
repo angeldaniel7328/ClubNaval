@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Entities;
 using BussinesLogic;
 
-namespace ClubNavalWeb.Catalogo.Personas
+namespace Presentation.Catalogo.Personas
 {
     public partial class ListaPersonas : Page
     {

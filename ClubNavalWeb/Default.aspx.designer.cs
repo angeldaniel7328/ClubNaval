@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClubNavalWeb
+namespace Presentation
 {
 
 

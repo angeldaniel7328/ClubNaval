@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ClubNavalWeb.Catalogo.Barcos
+namespace Presentation.Catalogo.Barcos
 {
     public partial class AltaBarco : Page
     {
