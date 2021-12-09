@@ -25,5 +25,15 @@ namespace Presentation.Salidas
             gvSalidas.DataSource = salidas;
             gvSalidas.DataBind();
         }
+
+        protected void gvSalidas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                var index = int.Parse(e.CommandArgument.ToString());
+                var idSalida = gvSalidas.DataKeys[index].Values["IdSalida"].ToString();
+                Response.Redirect("DetalleSalida.aspx?Id=" + idSalida);
+            }
+        }
     }
 }

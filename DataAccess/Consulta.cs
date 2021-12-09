@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public struct Parametro
+    struct Parametro
     {
         public string Nombre { get; set; }
         public SqlDbType Tipo { get; set; }
@@ -19,7 +19,7 @@ namespace DataAccess
         }      
     }
 
-    public static class Consulta
+    static class Consulta
     {
         public static int EjecutarSinConsulta(string procedimiento, List<Parametro> parametros)
         {

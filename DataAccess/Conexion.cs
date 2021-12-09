@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class Conexion
+    class Conexion
     {
         public string CadenaConexion { get; private set; }
 

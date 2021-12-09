@@ -32,10 +32,9 @@ namespace Presentation.Salidas
             {
                 var index = int.Parse(e.CommandArgument.ToString());
                 var idSalida = gvSalidas.DataKeys[index].Values["IdSalida"].ToString();
-                Response.Redirect("DetallesSalida.aspx?Id=" + idSalida);
+                Response.Redirect("DetalleSalida.aspx?Id=" + idSalida);
             }
         }
 
-        
     }
 }

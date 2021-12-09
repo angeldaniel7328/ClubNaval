@@ -11,33 +11,33 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Barcos</h2>
-            <h3>
+            <p>
                 <a class="btn btn-default" href="Catalogo/Barcos/AltaBarco.aspx">Alta</a>
-            </h3>
-            <h3>
+            </p>
+            <p>
                 <a class="btn btn-default" href="Catalogo/Barcos/ListaBarcos.aspx">Lista</a>
-            </h3>
+            </p>
         </div>
         <div class="col-md-4">
             <h2>Personas</h2>
-            <h3>
+            <p>
                 <a class="btn btn-default" href="Catalogo/Personas/AltaPersona.aspx">Alta</a>
-            </h3>
-            <h3>
+            </p>
+            <p>
                 <a class="btn btn-default" href="Catalogo/Personas/ListaPersonas.aspx">Lista</a>
-            </h3>
+            </p>
         </div>
         <div class="col-md-4">
             <h2>Salidas</h2>
-            <h3>
+            <p>
                 <a class="btn btn-default" href="Salidas/AltaSalida.aspx">Alta</a>
-            </h3>
-            <h3>
+            </p>
+            <p>
                 <a class="btn btn-default" href="Salidas/SalidasProceso.aspx">En proceso</a>
-            </h3>
-            <h3>
+            </p>
+            <p>
                 <a class="btn btn-default" href="Salidas/SalidasFinalizadas.aspx">Finalizadas</a>
-            </h3>
+            </p>
         </div>
     </div>
 

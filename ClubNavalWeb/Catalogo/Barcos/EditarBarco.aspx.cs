@@ -124,7 +124,7 @@ namespace Presentation.Catalogo.Barcos
             ddlOwner.SelectedIndex = 0;
             lblUrlFoto.InnerText = "";
             imgFotoBarco.ImageUrl = "";
-            btnGuardar.Visible = true;
+            btnGuardar.Visible = false;
         }
 
     }

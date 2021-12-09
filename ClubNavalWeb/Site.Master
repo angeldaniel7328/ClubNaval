@@ -46,6 +46,7 @@
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
+
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -54,9 +55,11 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">Club Naval Coatzacoalcos</a>
                 </div>
+
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
+
                         <li class="dropdown">
                             <a runat="server" href="~/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Catálogos
                                 <span class="caret"></span>
@@ -67,12 +70,20 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a runat="server" href="~/Catalogo/Personas/AltaPersona.aspx">Alta Persona</a></li>
                                 <li><a runat="server" href="~/Catalogo/Personas/ListaPersonas.aspx">Lista Personas</a></li>
-                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a runat="server" href="~/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Salidas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/Salidas/AltaSalida.aspx">Alta Salida</a></li>
                                 <li><a runat="server" href="~/Salidas/SalidasProceso.aspx">Salidas en proceso</a></li>
                                 <li><a runat="server" href="~/Salidas/SalidasFinalizadas.aspx">Salidas finalizadas</a></li>
                             </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>
